@@ -1,0 +1,32 @@
+<%- include('../partials/head', {title:PageTitle})%>
+    <%- include('../partials/nav')%>
+        <table class="table table-strip table-hover">
+            <thead>
+                <tr>
+                    <th>Title</th>
+                    <th>Price</th>
+                    <th colspan="2"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <% for(p of products){%>
+                    <tr>
+                        <td>
+                            <%= p.title%>
+                        </td>
+                        <td>
+                            <%=p.price%>
+                        </td>
+                        <td><a href="/admin/edit-product/<%= p._id %>" type="submit" class="btn btn-danger m-1">Edit</a>
+                        </td>
+                        <td>
+                            <form action="/admin/delete-product" method="POST">
+                                <input type="hidden" name="id" class="btn btn-primary m-1" value="<%= p._id %>">
+                                <button type="submit" class="btn btn-primary m-1">Delete</button>
+                            </form>
+                        </td>
+                    </tr>
+                    <%}%>
+            </tbody>
+        </table>
+        <%- include('../partials/footer')%>
