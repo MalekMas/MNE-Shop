@@ -54,4 +54,5 @@ app.use(errorController.get404);
 mongoose.connect("mongodb://localhost:27017/shop").then(() => {
   console.log("Connected to MongoDB successfully!");
 });
+
 app.listen(8080);
